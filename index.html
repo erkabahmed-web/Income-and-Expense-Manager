@@ -15,8 +15,8 @@
   <body>
     <main id="auth-screen" class="auth-screen">
       <section class="auth-card" aria-labelledby="auth-title">
-        <a class="brand auth-brand" href="#" aria-label="Daybook home">
-          <span class="brand-mark" aria-hidden="true">d</span>
+        <a class="brand auth-brand" href="#" aria-label="MelaPocket home">
+          <img class="brand-mark" src="assets/images/melapocket-logo.jpg" alt="" />
           <span>MelaPocket</span>
         </a>
         <div class="auth-intro">
@@ -60,8 +60,8 @@
 
     <div id="app-screen" class="app-shell" hidden>
       <aside class="sidebar">
-        <a class="brand sidebar-brand" href="#" aria-label="Daybook dashboard">
-          <span class="brand-mark" aria-hidden="true">d</span><span>daybook</span>
+        <a class="brand sidebar-brand" href="#" aria-label="MelaPocket dashboard">
+          <img class="brand-mark" src="assets/images/melapocket-logo.jpg" alt="" /><span>MelaPocket</span>
         </a>
         <p class="nav-caption">WORKSPACE</p>
         <nav class="primary-nav" aria-label="Main navigation">
@@ -70,6 +70,9 @@
           </button>
           <button class="nav-item" type="button" data-view="transactions">
             <span class="nav-icon" aria-hidden="true">↕</span>Transactions
+          </button>
+          <button class="nav-item" type="button" data-view="settings">
+            <span class="nav-icon" aria-hidden="true">⚙</span>Settings
           </button>
         </nav>
         <div class="sidebar-bottom">
@@ -162,6 +165,31 @@
             </div>
           </div>
         </section>
+
+        <section id="settings-view" class="page-view" hidden>
+          <div class="panel settings-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">YOUR PREFERENCES</p><h2>Settings</h2></div>
+            </div>
+            <div class="settings-content">
+              <div class="settings-copy">
+                <h3>Display currency</h3>
+                <p>Choose the currency used to display your amounts. This changes the display only and does not convert existing transactions.</p>
+              </div>
+              <div class="currency-controls">
+                <label class="field">
+                  <span>Search currencies</span>
+                  <input id="currency-search" type="search" autocomplete="off" placeholder="Search by name or ISO code" />
+                </label>
+                <label class="field">
+                  <span>Currency</span>
+                  <select id="currency-select" aria-describedby="currency-note"></select>
+                </label>
+                <p id="currency-note" class="settings-note">Your choice is saved to this account on this device.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
 
@@ -175,7 +203,7 @@
           <button type="button" class="type-option is-selected" data-transaction-type="expense">Expense</button>
           <button type="button" class="type-option" data-transaction-type="income">Income</button>
         </div>
-        <label class="field"><span>Amount</span><div class="amount-input"><span>$</span><input id="transaction-amount" name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required /></div></label>
+        <label class="field"><span>Amount</span><div class="amount-input"><span id="transaction-currency-symbol">$</span><input id="transaction-amount" name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required /></div></label>
         <div class="form-grid">
           <label class="field"><span>Category</span><select id="transaction-category" name="category" required></select></label>
           <label class="field"><span>Date</span><input id="transaction-date" name="date" type="date" required /></label>

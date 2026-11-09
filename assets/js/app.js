@@ -85,6 +85,8 @@ function setCurrency(code, save = true) {
     savePreferences(currentUser.id, { ...getPreferences(currentUser.id), currency: code });
   }
   currency = formatter;
+  $("#transaction-currency-symbol").textContent = formatter.formatToParts(0)
+    .find((part) => part.type === "currency").value;
 }
 
 function renderCurrencyOptions(search = "") {
